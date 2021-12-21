@@ -119,4 +119,10 @@ def read_molecule(path):
         ])
 
     # fix for empty vector layers until napari#2295 is merged
-    return [l for l in layers if l[0].size != 0]
+    return layers
+
+
+def read_molecules(paths):
+    paths = [paths] if isinstance(paths, str) else paths
+
+    return [tup for path in paths for tup in read_molecule(path)]

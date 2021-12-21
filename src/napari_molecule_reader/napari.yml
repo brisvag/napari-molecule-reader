@@ -3,7 +3,7 @@ display_name: napari molecule reader
 contributions:
   commands:
     - id: napari-molecule-reader.get_reader
-      python_name: napari_molecule_reader._reader:napari_get_reader
+      python_name: napari_molecule_reader.molecule_reader:read_molecules
       title: Open data with napari molecule reader
   readers:
     - command: napari-molecule-reader.get_reader
