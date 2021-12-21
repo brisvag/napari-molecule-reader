@@ -5,14 +5,7 @@ contributions:
     - id: napari-molecule-reader.get_reader
       python_name: napari_molecule_reader._reader:napari_get_reader
       title: Open data with napari molecule reader
-    - id: napari-molecule-reader.make_sample_data
-      python_name: napari_molecule_reader._sample_data:make_sample_data
-      title: Load sample data from napari molecule reader  
   readers:
     - command: napari-molecule-reader.get_reader
       accepts_directories: false
-      filename_patterns: ['*.npy']  
-  sample_data:
-    - command: napari-molecule-reader.make_sample_data
-      display_name: napari molecule reader
-      key: unique_id.1 
+      filename_patterns: ['*.pdb', '*.cif']  

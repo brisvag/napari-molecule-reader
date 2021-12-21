@@ -7,7 +7,10 @@
 [![codecov](https://codecov.io/gh/brisvag/napari-molecule-reader/branch/main/graph/badge.svg)](https://codecov.io/gh/brisvag/napari-molecule-reader)
 [![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/napari-molecule-reader)](https://napari-hub.org/plugins/napari-molecule-reader)
 
-A napari plugin that read molecular structure files.
+A napari plugin that read molecular structure files. It reads PDB and MMCIF files using [`atomium`](https://github.com/samirelanduk/atomium), expanding molecular assemblies to a full visualization. Data is loaded into napari as `Points` for ball representation and `Vectors` for stick representation. If multiple models or assemblies are detected, they will be loaded as separate objects.
+
+TODO list:
+- [] handle alternate locations (i.e: different conformations in the same pdb model)
 
 ----------------------------------
 
