@@ -9,6 +9,8 @@
 
 A napari plugin that read molecular structure files. It reads PDB and MMCIF files using [`atomium`](https://github.com/samirelanduk/atomium), expanding molecular assemblies to a full visualization. Data is loaded into napari as `Points` for ball representation and `Vectors` for stick representation. If multiple models or assemblies are detected, they will be loaded as separate objects.
 
+https://user-images.githubusercontent.com/23482191/150109390-bd7fb3b4-79b4-43da-aafc-20921714df25.mp4
+
 TODO list:
 - [] handle alternate locations (i.e: different conformations in the same pdb model)
 
