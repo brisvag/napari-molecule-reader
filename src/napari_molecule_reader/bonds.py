@@ -1,5 +1,5 @@
 import numpy as np
-from scipy.spatial.ckdtree import cKDTree
+from scipy.spatial import KDTree
 
 
 def guess_bonds(atoms, fudge=1.1):
@@ -21,7 +21,7 @@ def guess_bonds(atoms, fudge=1.1):
         return np.empty((0, 2))
 
     # get all neighbours
-    tree = cKDTree(coords)
+    tree = KDTree(coords)
     matrix = tree.sparse_distance_matrix(tree, max_dist * fudge)
     pairs, dists = zip(*matrix.items())
 
@@ -29,6 +29,7 @@ def guess_bonds(atoms, fudge=1.1):
     pairs = np.array(pairs)
     non_duplicate = pairs[:, 0] < pairs[:, 1]
     pairs = pairs[non_duplicate]
+    atom1, atom2 = pairs.T
 
     # get vdw radii for each pair and calculate their distance
     radii_pairs = radii[pairs]
@@ -42,16 +43,16 @@ def guess_bonds(atoms, fudge=1.1):
     elem_pairs = elem[pairs]
     hydro = np.any(np.isin(elem_pairs, ('H', 'D')), axis=1)
     resid = atoms['resid'].to_numpy()
-    same_resid = np.equal.reduce(resid[pairs], axis=1)
+    same_resid = resid[atom1] == resid[atom2]
     hydro_different_resid = np.logical_and(hydro, ~same_resid)
 
     # same chain
     chain = atoms['chain'].to_numpy()
-    same_chain = np.equal.reduce(chain[pairs], axis=1)
+    same_chain = chain[atom1] == chain[atom2]
 
     # same model
     model = atoms['model'].to_numpy()
-    same_model = np.equal.reduce(model[pairs], axis=1)
+    same_model = model[atom1] == model[atom2]
 
     # alternate loc indicator
     # alt_loc = atoms['alt_location'].to_numpy()
