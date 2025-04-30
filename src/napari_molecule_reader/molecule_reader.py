@@ -104,7 +104,7 @@ def read_molecule(path):
             properties=tile(properties, ass),
             size=tile(sizes, ass),
             face_color=tile(colors, ass),
-            edge_width=0,
+            border_width=0,
             shading='spherical',
         )
 
