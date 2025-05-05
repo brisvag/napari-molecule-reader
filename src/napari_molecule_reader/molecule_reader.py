@@ -101,13 +101,13 @@ def read_molecule(path):
             properties=tile(properties, ass),
             size=tile(sizes, ass),
             face_color=tile(colors, ass),
-            edge_width=0,
+            border_width=0,
             shading='spherical',
         )
 
         bond_kwargs = dict(
             name=f'{name} - {ass} - bonds',
-            edge_width=5,
+            border_width=5,
             vector_style='line',
         )
 
