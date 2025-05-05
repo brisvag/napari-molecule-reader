@@ -58,7 +58,6 @@ def read_molecule(path):
 
     # get coords, models go in 4th dimension
     coords = atoms[['model', 'x', 'y', 'z']].to_numpy()
-    coords[:, 1:] *= 100
     # guess bonds based on distances
     bonds = guess_bonds(data)
 
@@ -107,7 +106,7 @@ def read_molecule(path):
 
         bond_kwargs = dict(
             name=f'{name} - {ass} - bonds',
-            edge_width=5,
+            edge_width=0.1,
             vector_style='line',
         )
 
@@ -116,7 +115,6 @@ def read_molecule(path):
             (data['coords'], atom_kwargs, 'points'),
         ])
 
-    # fix for empty vector layers until napari#2295 is merged
     return layers
 
 
