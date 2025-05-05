@@ -107,7 +107,7 @@ def read_molecule(path):
 
         bond_kwargs = dict(
             name=f'{name} - {ass} - bonds',
-            border_width=5,
+            edge_width=5,
             vector_style='line',
         )
 
