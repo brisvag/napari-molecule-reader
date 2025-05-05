@@ -40,9 +40,6 @@ def read_molecule(path):
         colors[elem == el] = COLORS.get(el, [255, 0, 102])  # pink
     colors /= 255
 
-    # times 100 to avoid artifacts of high vispy zoom
-    sizes *= 100
-
     properties = atoms[property_columns]
 
     # get different assemblies
